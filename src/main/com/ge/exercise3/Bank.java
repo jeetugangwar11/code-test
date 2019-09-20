@@ -26,7 +26,7 @@ public class Bank {
 	}
 
 	public void addAccount(Account account) {
-		LOGGER.info("Adding Account: {}", accountMap.get(account));
+		LOGGER.info("Adding Account: {}", account);
 		accountMap.put(account.getAccountNumber(), account);
 	}
 
