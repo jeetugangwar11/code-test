@@ -62,12 +62,12 @@ public class Account {
 
 	public float withdraw(float amount) {
 		float overdrawnAmt = balance-amount;
-		if(accountType.equals(CHECKING) && overdrawnAmt > -100){
+		if(accountType.equals(CHECKING) && overdrawnAmt >= -100){
 			balance -= amount;
 		}else if(accountType.equals(SAVINGS) && overdrawnAmt >= 0){
 			balance -= amount;
 		}else{
-			LOGGER.info("Not having insufficient balance to withdraw!!! Your current account Balance is: "+ balance);
+			LOGGER.info("Not having sufficient balance to withdraw!!! Your current account Balance is: "+ balance);
 			overdrawnAmt=0;
 		}
 		return overdrawnAmt;
