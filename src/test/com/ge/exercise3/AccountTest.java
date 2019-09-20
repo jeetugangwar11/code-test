@@ -20,7 +20,7 @@ public class AccountTest {
 		bank = new Bank();
 		bank.addAccount(checkingAccount);
 		bank.addAccount(savingsAccount);
-	}
+	} 
 
 	@Test
 	public void depositAndWithdrawTest() {

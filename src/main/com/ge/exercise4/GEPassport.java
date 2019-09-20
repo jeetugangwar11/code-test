@@ -41,9 +41,21 @@ public class GEPassport {
     }
 
     public double thrustToWeightRatio() {
-        return takeoffThrust / wetWeight;
+        return takeoffThrust / dryWeight;
     }
 
+    public double getFlightHoursBeforeRebuild(){
+    	return flightHoursBeforeRebuild-flightHours;
+    }
+    
+    public double serviceLifeLeft(){
+    	if(maxNumRebuilds <= 0 && (maxNumRebuilds - numRebuilds) <= 0) {
+    		return 0;
+    	} else {
+    		return ((maxNumRebuilds - numRebuilds)*flightHoursBeforeRebuild)-flightHours;
+    	}
+    }
+    
     public String toString() {
         return ENGINE_MODEL + " SN: " + serialNumber;
     }

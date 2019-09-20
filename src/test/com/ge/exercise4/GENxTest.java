@@ -21,6 +21,18 @@ public class GENxTest {
 
     @Test
     public void thrustToWeightRatioTest() {
-        assertEquals(testEngine.takeoffThrust / testEngine.wetWeight, testEngine.thrustToWeightRatio(), 0.01);
+        assertEquals(testEngine.takeoffThrust / testEngine.dryWeight, testEngine.thrustToWeightRatio(), 0.01);
     }
+    
+    @Test
+	public void hoursLeftforrebuildTest() {
+		testEngine.setFlightHours(10000);
+		assertEquals(10000.0, testEngine.getFlightHoursBeforeRebuild(), 0.0);
+	}
+	
+	@Test
+	public void serviceLifeLeftTest() {
+		testEngine.setFlightHours(10000);
+		assertEquals(70000.0, testEngine.serviceLifeLeft(), 0.0);
+	}
 }

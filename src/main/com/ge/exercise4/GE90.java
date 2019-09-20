@@ -41,7 +41,15 @@ public class GE90 {
     }
 
     public double thrustToWeightRatio() {
-        return takeoffThrust / wetWeight;
+        return takeoffThrust / dryWeight;
+    }
+
+    public double getFlightHoursBeforeRebuild(){
+    	return flightHoursBeforeRebuild-flightHours;
+    }
+    
+    public double serviceLifeLeft(){
+    	return ((maxNumRebuilds - numRebuilds)*flightHoursBeforeRebuild)-flightHours;
     }
 
     public String toString() {

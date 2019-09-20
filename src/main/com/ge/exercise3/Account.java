@@ -35,7 +35,7 @@ public class Account {
 		if (accountType.equals(SAVINGS)) {
 			monthlyInterestRate = 1.0f;
 		}
-	} 
+	}  
 
 	public Account(String accountNumber, String accountType) {
 		this.accountNumber = accountNumber;
@@ -67,7 +67,7 @@ public class Account {
 		}else if(accountType.equals(SAVINGS) && overdrawnAmt >= 0){
 			balance -= amount;
 		}else{
-			LOGGER.error("Not having insufficient balance to withdraw!!! Your current account Balance is: {} ", balance);
+			LOGGER.info("Not having insufficient balance to withdraw!!! Your current account Balance is: {} ", balance);
 			overdrawnAmt=0;
 		}
 		return overdrawnAmt;
