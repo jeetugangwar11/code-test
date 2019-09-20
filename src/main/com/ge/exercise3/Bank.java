@@ -26,23 +26,23 @@ public class Bank {
 	}
 
 	public void addAccount(Account account) {
-		LOGGER.info("Adding Account: {}", account);
+		LOGGER.info("Adding Account: "+ account);
 		accountMap.put(account.getAccountNumber(), account);
 	}
 
 	public void depositToAccount(String accountNumber, float amount) {
-		LOGGER.info("Depositing amt to Account: {} is: {}", accountMap.get(accountNumber), amount);
+		LOGGER.info("Depositing amt to Account: "+accountMap.get(accountNumber)+" is: "+ amount);
 		getAccount(accountNumber).deposit(amount);
 	}
 
 	public void withdrawFromAccount(String accountNumber, float amount) {
-		LOGGER.info("Withdraw amt from Account: {} is: {}", accountMap.get(accountNumber), amount);
+		LOGGER.info("Withdraw amt from Account: "+accountMap.get(accountNumber)+" is: "+ amount);
 		getAccount(accountNumber).withdraw(amount);
 
 	} 
 
 	public float calNexMonthValue(String accountNumber) {
-		LOGGER.info("Calculated amt of Account: {} for next Month is: {}", accountMap.get(accountNumber), getAccount(accountNumber).calNextMonthValue());
+		LOGGER.info("Calculated amt of Account: "+accountMap.get(accountNumber)+" for next Month is: "+ getAccount(accountNumber).calNextMonthValue());
 		return getAccount(accountNumber).calNextMonthValue();
 	}
 

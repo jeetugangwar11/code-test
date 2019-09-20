@@ -28,13 +28,13 @@ public class MyParser implements Parser{
 			/*Converting JSON to Application Model*/
 			application = objectMapper.readValue(jsonFromText, ApplicationImplClass.class);
 		} catch (JsonParseException e) {
-			LOGGER.error("JsonParseException while creating JSON to Model: {}", e.getMessage());
+			LOGGER.error("JsonParseException while creating JSON to Model: "+ e.getMessage());
 		} catch (JsonMappingException e) {
-			LOGGER.error("JsonMappingException while creating JSON to Model: {}", e.getMessage());
+			LOGGER.error("JsonMappingException while creating JSON to Model: "+ e.getMessage());
 		} catch (IOException e) {
-			LOGGER.error("IOException while creating JSON to Model: {}", e.getMessage());
+			LOGGER.error("IOException while creating JSON to Model: "+ e.getMessage());
 		} 
-		LOGGER.info("Model after parsing the JSON: {}",application);
+		LOGGER.info("Model after parsing the JSON: "+ application);
 		
 		return application;
 	}

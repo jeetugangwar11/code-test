@@ -67,7 +67,7 @@ public class Account {
 		}else if(accountType.equals(SAVINGS) && overdrawnAmt >= 0){
 			balance -= amount;
 		}else{
-			LOGGER.info("Not having insufficient balance to withdraw!!! Your current account Balance is: {} ", balance);
+			LOGGER.info("Not having insufficient balance to withdraw!!! Your current account Balance is: "+ balance);
 			overdrawnAmt=0;
 		}
 		return overdrawnAmt;
