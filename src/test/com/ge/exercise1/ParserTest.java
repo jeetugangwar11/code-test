@@ -22,12 +22,17 @@ public class ParserTest {
 
     @Test
     public void parseApplicationDataSimpleTest() {
-        String simpleTestData = "Application(id: 0,name: MyApp,users:[User(id: 2,name: Beth Jones),User(id: 3,name: Jeet Jones)],groups:[Group(id: 1,name: SimpleGroup,users:[User(id: 2,name: Beth Jones)]),Group(id: 2,name: SimpleGroup,users:[User(id: 4,name: Ram Jones),User(id: 5,name: Ram Jones)])])";
+        String simpleTestData = "Application(id: 0,name: MyApp,users:[User(id: 1,name: Jeet Jones),User(id: 2,name: Beth Jones)],groups:[Group(id: 1,name: SimpleGroup,users:[User(id: 1,name: Beth Jones)]),Group(id: 2,name: Jeet's Group,users:[User(id: 2,name: Jeet Jones),User(id: 3,name: Ram Jones)])])";
         Application app = parser.parseApplicationData(simpleTestData);
 
         assertEquals("SimpleGroup", app.getGroup("1").getName());
         assertEquals(1, app.getGroup("1").size);
-
+        
+        Group group = (Group) app.getGroups().toArray()[1];
+        assertEquals("Jeet's Group", ((Group) app.getGroups().toArray()[1]).getName());
+        
+        assertEquals("Jeet Jones", ((User)group.getUsers().toArray()[0]).getName());
+        
         assertEquals("Beth Jones", app.getUser("2").getName());
     }
 }
